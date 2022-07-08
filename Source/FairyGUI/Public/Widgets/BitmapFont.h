@@ -26,4 +26,9 @@ struct FAIRYGUI_API FBitmapFont : public FGCObject
     UNTexture* Texture;
 
     virtual void AddReferencedObjects(FReferenceCollector& Collector) override;
+
+    virtual FString GetReferencerName() const override
+    {
+        return TEXT("BitmapFont");
+    };
 };

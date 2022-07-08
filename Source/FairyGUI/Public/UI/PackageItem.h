@@ -25,7 +25,10 @@ public:
     TSharedPtr<FPackageItem> GetHighResolution();
 
     virtual void AddReferencedObjects(FReferenceCollector& Collector) override;
-
+    virtual FString GetReferencerName() const override
+    {
+        return TEXT("FPackageItem");
+    };
 public:
     UUIPackage* Owner;
 

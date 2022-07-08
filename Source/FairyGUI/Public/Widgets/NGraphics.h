@@ -34,7 +34,10 @@ public:
     void PopulateDefaultMesh(FVertexHelper& Helper);
 
     virtual void AddReferencedObjects(FReferenceCollector& Collector) override;
-
+    virtual FString GetReferencerName() const override
+    {
+        return TEXT("FNGraphics");
+    };
 private:
     void UpdateMeshNow();
 
