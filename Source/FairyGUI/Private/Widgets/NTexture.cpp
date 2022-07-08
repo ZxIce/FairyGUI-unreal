@@ -65,7 +65,12 @@ void UNTexture::Init(UTexture2D* InNativeTexture, float ScaleX, float ScaleY)
         UVRect.Max.X = 0;
     }
     if (NativeTexture != nullptr)
+#if WITH_EDITOR
+        OriginalSize.Set(NativeTexture->GetImportedSize().X, NativeTexture->GetImportedSize().Y);
+#else
         OriginalSize.Set(NativeTexture->GetSurfaceWidth(), NativeTexture->GetSurfaceHeight());
+#endif
+    
     Region = FBox2D(FVector2D::ZeroVector, FVector2D(OriginalSize.X, OriginalSize.Y));
 }
 
